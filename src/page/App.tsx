@@ -3,9 +3,9 @@ import Container from '../components/Container'
 import TodoBoard from '@/components/TodoBoard'
 import Title from './subcomponents/Title'
 import ModalButton from '@/components/ModalButton'
-import TodoContext from '@/context/TodoContext'
 
 import ColorSelector from '@/components/ColorSelector'
+import TodoContext from '@/context/TodoContext'
 
 function App() {
   const { TodoBoardTypes, tasks } = useContext(TodoContext)
@@ -21,9 +21,9 @@ function App() {
     >
       <div className="flex justify-between items-center">
         <Title />
+
         <div className="flex items-center gap-5">
           <ColorSelector />
-
           <ModalButton />
         </div>
       </div>

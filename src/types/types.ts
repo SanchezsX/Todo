@@ -3,3 +3,9 @@ export interface ContainerProps {
   width?: string
   className?: string
 }
+
+export interface TodoBoardProps {
+  title: string
+  subtitle: string
+  tasks: any
+}

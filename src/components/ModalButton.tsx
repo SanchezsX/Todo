@@ -1,3 +1,4 @@
+import { useContext, useState } from 'react'
 import TodoContext from '@/context/TodoContext'
 import {
   Button,
@@ -10,7 +11,6 @@ import {
   Tabs,
   useDisclosure,
 } from '@nextui-org/react'
-import { useContext, useState } from 'react'
 
 const ModalButton = ({ Plus }: { Plus?: boolean }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
