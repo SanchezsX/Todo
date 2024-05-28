@@ -15,12 +15,12 @@ const TodoList = ({ todos }: { todos: any }) => {
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.5 }}
         layout
-        className="px-2"
+        className="px-2 "
       >
         <div
           className={cn(
             'bg-[#18181B] py-3 pl-4 rounded-[15px] text-[14px]',
-            'flex justify-between mx-auto mb-2 pr-3 '
+            'flex justify-between mx-auto mb-2 pr-3   '
           )}
         >
           <Checkbox
@@ -29,7 +29,7 @@ const TodoList = ({ todos }: { todos: any }) => {
             isSelected={isSelectedCheckbox}
             onValueChange={setIsSelectedCheckbox}
             color="primary"
-            classNames={{ label: ' text-[14px] text-wrap' }}
+            classNames={{ label: ' text-[14px] ' }}
           >
             {todos.text}
           </Checkbox>

@@ -1,10 +1,11 @@
-import { useState } from 'react'
+
 import { TodoBoardProps } from '@/types/types'
 import ModalButton from './ModalButton'
 import TodoList from './TodoList'
 
 const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
-  const [plus, setPlus] = useState(true)
+  const plus = true
+
   return (
     <div className="bg-secondary w-[430px] h-[630px] rounded-[25px] ">
       <div className="flex justify-between items-center">
