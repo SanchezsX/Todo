@@ -25,6 +25,11 @@ const ModalButton = ({ Plus }: { Plus?: boolean }) => {
     setInputValue('')
     onOpenChange()
   }
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleAdd()
+    }
+  }
 
   return (
     <>
@@ -63,6 +68,7 @@ const ModalButton = ({ Plus }: { Plus?: boolean }) => {
                   placeholder="to do?"
                   className="rounded-[15px] p-3 focus:outline-none bg-[#3c3c3f] border-white/10 border-2 mb-5"
                   onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   value={inputValue}
                 />
                 <h3 className="font-bold text-[19px]">

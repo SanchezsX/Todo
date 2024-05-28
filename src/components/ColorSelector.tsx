@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Tooltip } from '@nextui-org/react'
 import { IoIosColorPalette } from 'react-icons/io'
+import { colors } from '@/helpers/colors'
 const ColorSelector: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState<string>('#00DC82')
-  const colors: string[] = [
-    '#00DC82',
-    '#E879F9',
-    '#FB923C',
-    '#FBBF24',
-    '#FACC15',
-    '#A3E635',
-    '#38BDF8',
-    '#FB7185',
-    '#E879F9',
-  ]
+
 
   useEffect(() => {
     const savedColor = localStorage.getItem('selectedColor')
