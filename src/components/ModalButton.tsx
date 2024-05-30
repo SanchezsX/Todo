@@ -55,8 +55,9 @@ const ModalButton = ({ Plus }: { Plus?: boolean }) => {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
+        backdrop='blur' 
       >
-        <ModalContent className="bg-secondary">
+        <ModalContent  className="bg-secondary">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">

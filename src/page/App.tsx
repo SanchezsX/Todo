@@ -15,29 +15,31 @@ function App() {
     'No other things to do. Good job!',
   ]
   return (
-    <Container
-      width="1400px"
-      className="h-screen flex flex-col justify-end pb-10"
-    >
-      <div className="flex justify-between items-center">
-        <Title />
+    <div className="bg-secondary">
+      <Container
+        width="1400px"
+        className="h-screen flex flex-col justify-end pb-10 "
+      >
+        <div className="flex justify-between items-center">
+          <Title />
 
-        <div className="flex items-center gap-5">
-          <ColorSelector />
-          <ModalButton />
+          <div className="flex items-center gap-5">
+            <ColorSelector />
+            <ModalButton />
+          </div>
         </div>
-      </div>
-      <div className="flex gap-5 justify-between">
-        {TodoBoardTypes.map((type) => (
-          <TodoBoard
-            key={type}
-            title={type}
-            tasks={tasks.filter((task) => task.category === type)}
-            subtitle={subtitles[TodoBoardTypes.indexOf(type)]}
-          />
-        ))}
-      </div>
-    </Container>
+        <div className="flex gap-5 justify-between">
+          {TodoBoardTypes.map((type) => (
+            <TodoBoard
+              key={type}
+              title={type}
+              tasks={tasks.filter((task) => task.category === type)}
+              subtitle={subtitles[TodoBoardTypes.indexOf(type)]}
+            />
+          ))}
+        </div>
+      </Container>
+    </div>
   )
 }
 
