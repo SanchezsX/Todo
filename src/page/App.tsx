@@ -25,7 +25,7 @@ function App() {
 
           <div className="flex items-center gap-5">
             <ColorSelector />
-            <ModalButton />
+            <ModalButton titleButton='Add Todo' />
           </div>
         </div>
         <div className="flex gap-5 justify-between">

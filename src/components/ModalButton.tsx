@@ -12,7 +12,7 @@ import {
   useDisclosure,
 } from '@nextui-org/react'
 
-const ModalButton = ({ Plus }: { Plus?: boolean }) => {
+const ModalButton = ({ Plus, titleButton }: { Plus?: boolean ; titleButton?: string }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [inputValue, setInputValue] = useState('')
   const { handleAddTask, TodoBoardTypes } = useContext(TodoContext)
@@ -39,7 +39,7 @@ const ModalButton = ({ Plus }: { Plus?: boolean }) => {
           color="primary"
           className="font-semibold text-[#111827]"
         >
-          Add Todo
+          {titleButton}
         </Button>
       ) : (
         <Button

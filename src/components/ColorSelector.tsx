@@ -8,8 +8,7 @@ const ColorSelector: React.FC = () => {
     useState<string>('#00DC82')
   const [selectedSecondaryColor, setSelectedSecondaryColor] =
     useState<string>('#18181B')
-  const [selectedTertiaryColor, setSelectedTertiaryColor] =
-    useState<string>('#FFFFFF') // Initial tertiary color
+  
 
   useEffect(() => {
     const savedPrimaryColor = localStorage.getItem('selectedPrimaryColor')
@@ -33,7 +32,7 @@ const ColorSelector: React.FC = () => {
     }
 
     if (savedTertiaryColor) {
-      setSelectedTertiaryColor(savedTertiaryColor)
+      
       document.documentElement.style.setProperty(
         '--tertiary-color',
         savedTertiaryColor
@@ -54,7 +53,7 @@ const ColorSelector: React.FC = () => {
   }
 
   const handleTertiaryColorChange = (color: string) => {
-    setSelectedTertiaryColor(color)
+   
     document.documentElement.style.setProperty('--tertiary-color', color)
     localStorage.setItem('selectedTertiaryColor', color)
   }

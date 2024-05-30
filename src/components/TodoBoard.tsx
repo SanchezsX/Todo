@@ -79,7 +79,7 @@ const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
           <p className="text-[16px] mb-4 opacity-50 px-4 text-center">
             {subtitle}
           </p>
-          <ModalButton />
+          <ModalButton titleButton={`Add todo ${title}`} />
         </div>
       ) : (
         tasks.map((task: string) => (
