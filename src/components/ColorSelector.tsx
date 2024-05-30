@@ -6,7 +6,7 @@ import { colors, colorsSecondary, colorsTertiary } from '@/helpers/colors'
 const ColorSelector: React.FC = () => {
   const [selectedPrimaryColor, setSelectedPrimaryColor] = useState<string>('#00DC82')
   const [selectedSecondaryColor, setSelectedSecondaryColor] = useState<string>('#18181B')
-  const [selectedTertiaryColor, setSelectedTertiaryColor] = useState<string>('#2B2B2B')
+ 
 
   useEffect(() => {
     const savedPrimaryColor = localStorage.getItem('selectedPrimaryColor')
@@ -28,7 +28,7 @@ const ColorSelector: React.FC = () => {
     }
 
     if (savedTertiaryColor) {
-      setSelectedTertiaryColor(savedTertiaryColor)
+     
       document.documentElement.style.setProperty('--tertiary-color', savedTertiaryColor)
     } else {
       document.documentElement.style.setProperty('--tertiary-color', '#2B2B2B')
@@ -48,7 +48,7 @@ const ColorSelector: React.FC = () => {
   }
 
   const handleTertiaryColorChange = (color: string) => {
-    setSelectedTertiaryColor(color)
+ 
     document.documentElement.style.setProperty('--tertiary-color', color)
     localStorage.setItem('selectedTertiaryColor', color)
   }
