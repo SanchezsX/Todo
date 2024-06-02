@@ -9,10 +9,17 @@ import {
   ModalHeader,
   Tab,
   Tabs,
+  cn,
   useDisclosure,
 } from '@nextui-org/react'
 
-const ModalButton = ({ Plus, titleButton }: { Plus?: boolean ; titleButton?: string }) => {
+const ModalButton = ({
+  Plus,
+  titleButton,
+}: {
+  Plus?: boolean
+  titleButton?: string
+}) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [inputValue, setInputValue] = useState('')
   const { handleAddTask, TodoBoardTypes } = useContext(TodoContext)
@@ -55,9 +62,9 @@ const ModalButton = ({ Plus, titleButton }: { Plus?: boolean ; titleButton?: str
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        backdrop='blur' 
+        backdrop="blur"
       >
-        <ModalContent  className="bg-secondary">
+        <ModalContent className="bg-secondary">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
@@ -67,7 +74,10 @@ const ModalButton = ({ Plus, titleButton }: { Plus?: boolean ; titleButton?: str
                 <input
                   type="text"
                   placeholder="to do?"
-                  className="rounded-[15px] p-3 focus:outline-none bg-[#3c3c3f] border-white/10 border-2 mb-5"
+                  className={cn(
+                    'rounded-[15px] p-3 focus:outline-none ',
+                    'bg-[#3c3c3f] border-white/10 border-2 mb-5 bg-tertiary'
+                  )}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   value={inputValue}
@@ -77,14 +87,9 @@ const ModalButton = ({ Plus, titleButton }: { Plus?: boolean ; titleButton?: str
                 </h3>
                 <Tabs
                   color="primary"
-                  key="1123"
                   aria-label="Tabs colors"
                   radius="sm"
                   variant="bordered"
-                  classNames={{
-                    tabContent:
-                      'group-data-[selected=true]:text-[#3c3c3f] font-semibold ',
-                  }}
                   onSelectionChange={(value) =>
                     setLocalCategory(
                       value as 'Todays' | 'This week' | 'Eventually'
