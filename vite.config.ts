@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Todo',
+  base: '/Todo-settings-thems/',
   plugins: [react()],
   resolve: {
     alias: {
