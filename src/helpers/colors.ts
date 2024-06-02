@@ -14,6 +14,7 @@ export const colors: string[] = [
 ]
 export const colorsSecondary: string[] = [
   '#0F172A',
+  '#111827',
   '#18181B',
   '#171717',
   '#1C1917',

@@ -13,6 +13,8 @@ const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
     switch (color) {
       case '#0F172A':
         return '#1E293B'
+      case '#111827':
+        return '#1F2937'  
       case '#18181B':
         return '#27272A'
       case '#171717':
