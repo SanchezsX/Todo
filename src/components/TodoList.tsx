@@ -3,11 +3,26 @@ import { Checkbox, cn } from '@nextui-org/react'
 import { MdDeleteForever } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
 import TodoContext from '@/context/TodoContext'
+import confetti from 'canvas-confetti'
 
 const TodoList = ({ todos }: { todos: any }) => {
   const [isSelectedCheckbox, setIsSelectedCheckbox] = useState(false)
   const { handleDeleteTask } = useContext(TodoContext)
+  const handleConfetti = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = rect.left + rect.width / 2
+    const y = rect.top + rect.height / 2
 
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { x: x / window.innerWidth, y: y / window.innerHeight },
+    })
+
+    handleDeleteTask(todos.id)
+  }
   return (
     <AnimatePresence>
       <motion.div
@@ -39,7 +54,7 @@ const TodoList = ({ todos }: { todos: any }) => {
           >
             {todos.text}
           </Checkbox>
-          <button onClick={() => handleDeleteTask(todos.id)}>
+          <button onClick={handleConfetti}>
             <MdDeleteForever size={22} />
           </button>
         </div>
