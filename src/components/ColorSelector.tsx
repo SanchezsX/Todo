@@ -57,6 +57,7 @@ const ColorSelector: React.FC = () => {
     <div>
       <Tooltip
         className="border border-[#3C3C3F]/50"
+        
         classNames={{
           content: 'bg-[#2B2B2B]',
         }}

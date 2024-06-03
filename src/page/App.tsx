@@ -20,14 +20,14 @@ function App() {
         width="1400px"
         className="h-screen flex flex-col justify-end pb-10 "
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center max-[600px]:mb-10 max-[600px]:mt-5">
           <Title />
           <div className="flex items-center gap-5">
             <ColorSelector />
             <ModalButton titleButton="Add Todo" />
           </div>
         </div>
-        <div className="flex gap-5 justify-between">
+        <div className="flex gap-5 justify-between max-[600px]:flex-col max-[600px]:overflow-x-auto max-[600px]:items-center ">
           {TodoBoardTypes.map((type) => (
             <TodoBoard
               key={type}

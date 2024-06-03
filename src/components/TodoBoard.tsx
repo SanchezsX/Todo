@@ -14,7 +14,7 @@ const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
       case '#0F172A':
         return '#1E293B'
       case '#111827':
-        return '#1F2937'  
+        return '#1F2937'
       case '#18181B':
         return '#27272A'
       case '#171717':
@@ -64,12 +64,9 @@ const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
 
   return (
     <div
-      className="bg-tertiary"
+      className="rounded-2xl w-[430px] h-[630px] max-[600px]:min-h-[430px] max-[600px]:w-full"
       style={{
         backgroundColor: boardColor,
-        width: '430px',
-        height: '630px',
-        borderRadius: '25px',
       }}
     >
       <div className="flex justify-between items-center">
@@ -77,7 +74,7 @@ const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
         {tasks.length === 0 ? null : <ModalButton Plus={plus} />}
       </div>
       {tasks.length === 0 ? (
-        <div className="flex flex-col justify-center items-center h-[500px]">
+        <div className="flex flex-col justify-center items-center h-[500px] max-[600px]:h-[350px]">
           <p className="text-[16px] mb-4 opacity-50 px-4 text-center">
             {subtitle}
           </p>

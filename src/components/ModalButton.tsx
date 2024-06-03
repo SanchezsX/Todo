@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import TodoContext from '@/context/TodoContext'
 import {
   Button,
@@ -26,6 +26,9 @@ const ModalButton = ({
   const [localCategory, setLocalCategory] = useState<
     'Todays' | 'This week' | 'Eventually'
   >('Todays')
+  const [modalPlacement, setModalPlacement] = useState<
+  'auto' | 'center' | 'top' | 'bottom' | 'top-center' | 'bottom-center' | undefined
+>("center");
 
   const handleAdd = () => {
     handleAddTask(inputValue, localCategory)
@@ -44,7 +47,8 @@ const ModalButton = ({
         <Button
           onPress={onOpen}
           color="primary"
-          className="font-semibold text-[#111827]"
+          className="font-semibold text-[#111827] "
+          variant="shadow"
         >
           {titleButton}
         </Button>
@@ -63,6 +67,7 @@ const ModalButton = ({
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         backdrop="blur"
+        placement={modalPlacement}
       >
         <ModalContent className="bg-secondary">
           {(onClose) => (
@@ -91,7 +96,8 @@ const ModalButton = ({
                   radius="sm"
                   variant="bordered"
                   classNames={{
-                    tabContent: 'group-data-[selected=true]:text-[#111827] font-semibold',
+                    tabContent:
+                      'group-data-[selected=true]:text-[#111827] font-semibold',
                   }}
                   onSelectionChange={(value) =>
                     setLocalCategory(
