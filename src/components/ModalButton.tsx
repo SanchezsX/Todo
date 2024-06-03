@@ -90,6 +90,9 @@ const ModalButton = ({
                   aria-label="Tabs colors"
                   radius="sm"
                   variant="bordered"
+                  classNames={{
+                    tabContent: 'group-data-[selected=true]:text-[#111827] font-semibold',
+                  }}
                   onSelectionChange={(value) =>
                     setLocalCategory(
                       value as 'Todays' | 'This week' | 'Eventually'
@@ -110,7 +113,7 @@ const ModalButton = ({
                   variant="light"
                   onPress={onClose}
                 >
-                  Close
+                  close
                 </Button>
                 <Button
                   color="primary"

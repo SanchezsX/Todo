@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Checkbox, cn } from '@nextui-org/react'
 import { MdDeleteForever } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -6,8 +6,12 @@ import TodoContext from '@/context/TodoContext'
 import confetti from 'canvas-confetti'
 
 const TodoList = ({ todos }: { todos: any }) => {
-  const [isSelectedCheckbox, setIsSelectedCheckbox] = useState(false)
   const { handleDeleteTask } = useContext(TodoContext)
+  const [isSelectedCheckbox, setIsSelectedCheckbox] = useState(() => {
+    const savedState = localStorage.getItem(`todo-${todos.id}`)
+    return savedState ? JSON.parse(savedState) : false
+  })
+
   const handleConfetti = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -23,6 +27,9 @@ const TodoList = ({ todos }: { todos: any }) => {
 
     handleDeleteTask(todos.id)
   }
+  useEffect(() => {
+    localStorage.setItem(`todo-${todos.id}`, JSON.stringify(isSelectedCheckbox))
+  }, [isSelectedCheckbox, todos.id])
   return (
     <AnimatePresence>
       <motion.div
@@ -50,7 +57,7 @@ const TodoList = ({ todos }: { todos: any }) => {
             isSelected={isSelectedCheckbox}
             onValueChange={setIsSelectedCheckbox}
             color="primary"
-            classNames={{ label: 'text-[14px]' }}
+            classNames={{ label: 'text-[14px]', icon: 'text-black' }}
           >
             {todos.text}
           </Checkbox>

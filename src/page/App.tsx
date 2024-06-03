@@ -22,7 +22,6 @@ function App() {
       >
         <div className="flex justify-between items-center">
           <Title />
-
           <div className="flex items-center gap-5">
             <ColorSelector />
             <ModalButton titleButton="Add Todo" />
