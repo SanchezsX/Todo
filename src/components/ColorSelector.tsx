@@ -4,9 +4,10 @@ import { IoIosColorPalette } from 'react-icons/io'
 import { colors, colorsSecondary, colorsTertiary } from '@/helpers/colors'
 
 const ColorSelector: React.FC = () => {
-  const [selectedPrimaryColor, setSelectedPrimaryColor] = useState<string>('#00DC82')
-  const [selectedSecondaryColor, setSelectedSecondaryColor] = useState<string>('#18181B')
- 
+  const [selectedPrimaryColor, setSelectedPrimaryColor] =
+    useState<string>('#00DC82')
+  const [selectedSecondaryColor, setSelectedSecondaryColor] =
+    useState<string>('#18181B')
 
   useEffect(() => {
     const savedPrimaryColor = localStorage.getItem('selectedPrimaryColor')
@@ -15,21 +16,29 @@ const ColorSelector: React.FC = () => {
 
     if (savedPrimaryColor) {
       setSelectedPrimaryColor(savedPrimaryColor)
-      document.documentElement.style.setProperty('--primary-color', savedPrimaryColor)
+      document.documentElement.style.setProperty(
+        '--primary-color',
+        savedPrimaryColor
+      )
     } else {
       document.documentElement.style.setProperty('--primary-color', '#00DC82')
     }
 
     if (savedSecondaryColor) {
       setSelectedSecondaryColor(savedSecondaryColor)
-      document.documentElement.style.setProperty('--secondary-color', savedSecondaryColor)
+      document.documentElement.style.setProperty(
+        '--secondary-color',
+        savedSecondaryColor
+      )
     } else {
       document.documentElement.style.setProperty('--secondary-color', '#18181B')
     }
 
     if (savedTertiaryColor) {
-     
-      document.documentElement.style.setProperty('--tertiary-color', savedTertiaryColor)
+      document.documentElement.style.setProperty(
+        '--tertiary-color',
+        savedTertiaryColor
+      )
     } else {
       document.documentElement.style.setProperty('--tertiary-color', '#2B2B2B')
     }
@@ -48,7 +57,6 @@ const ColorSelector: React.FC = () => {
   }
 
   const handleTertiaryColorChange = (color: string) => {
- 
     document.documentElement.style.setProperty('--tertiary-color', color)
     localStorage.setItem('selectedTertiaryColor', color)
   }
@@ -57,7 +65,6 @@ const ColorSelector: React.FC = () => {
     <div>
       <Tooltip
         className="border border-[#3C3C3F]/50"
-        
         classNames={{
           content: 'bg-[#2B2B2B]',
         }}
@@ -115,7 +122,7 @@ const ColorSelector: React.FC = () => {
               ))}
             </div>
             <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-            {colorsTertiary.map((color) => (
+              {colorsTertiary.map((color) => (
                 <div
                   key={color}
                   onClick={() => handleTertiaryColorChange(color)}

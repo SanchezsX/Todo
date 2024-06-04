@@ -26,9 +26,15 @@ const ModalButton = ({
   const [localCategory, setLocalCategory] = useState<
     'Todays' | 'This week' | 'Eventually'
   >('Todays')
-  const [modalPlacement, setModalPlacement] = useState<
-  'auto' | 'center' | 'top' | 'bottom' | 'top-center' | 'bottom-center' | undefined
->("center");
+  const [modalPlacement] = useState<
+    | 'auto'
+    | 'center'
+    | 'top'
+    | 'bottom'
+    | 'top-center'
+    | 'bottom-center'
+    | undefined
+  >('center')
 
   const handleAdd = () => {
     handleAddTask(inputValue, localCategory)
@@ -57,7 +63,7 @@ const ModalButton = ({
           onPress={onOpen}
           radius="full"
           size="sm"
-          className=" text-primary bg-transparent  text-[25px]"
+          className=" text-primary bg-transparent text-[25px]"
         >
           +
         </Button>
@@ -73,7 +79,7 @@ const ModalButton = ({
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                What do you want to do?
+                <h3 className="text-primary">What do you want to do?</h3>
               </ModalHeader>
               <ModalBody>
                 <input
