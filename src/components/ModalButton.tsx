@@ -12,6 +12,7 @@ import {
   cn,
   useDisclosure,
 } from '@nextui-org/react'
+import { Category, ModalPlacement } from '@/types/types'
 
 const ModalButton = ({
   Plus,
@@ -23,18 +24,8 @@ const ModalButton = ({
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [inputValue, setInputValue] = useState('')
   const { handleAddTask, TodoBoardTypes } = useContext(TodoContext)
-  const [localCategory, setLocalCategory] = useState<
-    'Todays' | 'This week' | 'Eventually'
-  >('Todays')
-  const [modalPlacement] = useState<
-    | 'auto'
-    | 'center'
-    | 'top'
-    | 'bottom'
-    | 'top-center'
-    | 'bottom-center'
-    | undefined
-  >('center')
+  const [localCategory, setLocalCategory] = useState<Category>('Todays')
+  const [modalPlacement] = useState<ModalPlacement>('center')
 
   const handleAdd = () => {
     handleAddTask(inputValue, localCategory)

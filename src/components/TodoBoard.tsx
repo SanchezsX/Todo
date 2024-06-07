@@ -2,29 +2,12 @@ import { useEffect, useState } from 'react'
 import { TodoBoardProps } from '@/types/types'
 import ModalButton from './ModalButton'
 import TodoList from './TodoList'
+import { determineBgColor } from '@/helpers/determineBgColor'
 
 const TodoBoard = ({ title, subtitle, tasks }: TodoBoardProps) => {
   const [secondaryColor, setSecondaryColor] = useState('')
-
   const [boardColor, setBoardColor] = useState('')
   const plus = true
-
-  const determineBgColor = (color: string): string => {
-    switch (color) {
-      case '#0F172A':
-        return '#1E293B'
-      case '#111827':
-        return '#1F2937'
-      case '#18181B':
-        return '#27272A'
-      case '#171717':
-        return '#262626'
-      case '#1C1917':
-        return '#292524'
-      default:
-        return color
-    }
-  }
 
   useEffect(() => {
     const secondary = getComputedStyle(document.documentElement)
